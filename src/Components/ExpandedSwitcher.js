@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     background: 'linear-gradient(45deg, #303540 30%, #202830  90%)',
   },
   content:{
-    height:'55vh'
+    height:'70vh'
   }
 });
 

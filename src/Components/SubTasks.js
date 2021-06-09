@@ -3,7 +3,7 @@ import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import CheckBox from '@material-ui/core/CheckBox';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Input from '@material-ui/core/Input';
 import { makeStyles } from '@material-ui/core/styles';
@@ -44,8 +44,28 @@ const useStyles = makeStyles((theme) => ({
     },
     noTasksTitle:{
         padding:theme.spacing(2)
-    }
+    },
+    inputBar:{
+        display:'flex',
+        alignItems:'center',
+        marginLeft:theme.spacing(2),
+        marginBottom:theme.spacing(1)
+    },
+    root:{
+        padding:theme.spacing(1),
+        width:'100%',
+    },
+    addGroupTitle:{
+        marginRight:theme.spacing(3)
+    },
+    addGroupInput:{
+        marginRight:theme.spacing(3)
+    },
+    addGroupButton:{
+        marginRight:theme.spacing(3)
+    },
   }));
+  
 
 const SubTasks = () => {
     const {tasks, state} = useContext(StateManager)
@@ -54,7 +74,7 @@ const SubTasks = () => {
     const classes = useStyles()
 
 
-const addSubTask = (e, ) =>{
+const addSubTask = (e) =>{
     if (subTaskTile == ''){
         alert('You must Add a task title')
         return
@@ -170,33 +190,32 @@ const addSubTask = (e, ) =>{
     
     return (
         <Box className={classes.root}>
-            <Box  >
-                <Grid container spacing={3} className={classes.input}>
-                    <Grid item xs={12} md={5} lg={5} >
-                        <Paper className={classes.inputField}> 
-                            <Input 
-                                fullWidth={true}
-                                fullHeight={true}
-                                placeholder='Enter Subtask Title'
-                                value={subTaskTile}
-                                onChange={e =>(
-                                    setSubTaskTitle(e.target.value, 'add')
-                                )}>
-                            </Input>
-                        </Paper>
-                    </Grid>
-                    <Grid item xs={12} md={6} lg={6} >
-                        <Button 
-                        position='fixed' 
-                        color='secondary' 
-                        variant ='outlined'
-                        size='large'
-                        startIcon={<PlaylistAddIcon/>}
-                        onClick={(e)=>(
-                            addSubTask()
-                        )}>Add</Button>
-                    </Grid>
-                </Grid>
+            <Box className={classes.inputBar}>
+                <Typography
+                className={classes.addGroupTitle}
+                variant='h5'
+                color='textSecondary'
+                size='small'
+                placeholder='Title'>
+                    Add subtask
+                </Typography>
+                
+                <TextField
+                className={classes.addGroupInput}
+                onChange={e => setSubTaskTitle(e.target.value)}
+                variant='outlined'
+                label='group title'
+                margin='dense'
+                placeholder='Title'
+                />
+                <Button 
+                className={classes.addGroupButton}
+                variant='outlined'
+                size='medium'
+                onClick={e => addSubTask(e)}
+                >
+                    Add
+                </Button>
             </Box>
             <Box className={classes.display}   >
                 {appState.selectedTask.subTasks.length > 0?
@@ -220,7 +239,16 @@ const addSubTask = (e, ) =>{
                             </Grid>
                             ))}
                     </Grid>:
-                <Typography variant='h4' colour='textSecondary' className={classes.noTasksTitle}>Add Subtasks...</Typography>
+                    <>
+                    <Typography
+                        variant='h3'
+                        color='textSecondary'
+                        style={{marginLeft:'1.5rem', marginTop:'1.5rem'}}> Add Subtask </Typography>
+                    <Typography
+                        variant='h6'
+                        color='textSecondary'
+                        style={{marginLeft:'1.5rem'}}> Then track their progress with Kanban Board </Typography>
+                    </>
                 }
             </Box>
             

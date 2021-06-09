@@ -195,7 +195,7 @@ const columnsFromBackend = {
                             ? "lightblue"
                             : "rgba(0,0,0,0)",
                           padding: 4,
-                          width: '20vw',
+                          width: '15vw',
                           minHeight: 200
                         }}
                       >

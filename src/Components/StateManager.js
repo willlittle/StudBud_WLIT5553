@@ -5,18 +5,18 @@ import {uuid} from 'uuidv4'
 export const StateManager = createContext();
     
 export const StateProvider = props  => {
-    var d = new Date().toLocaleString()
+    var d = new Date('2021-12-04T21:11:54')
     const [tasks, setTasks] = useState([
         {
             key: 1,
             title: "Final Exam",
             description: "Info1110 finals",
             subject: 'INFO1110',
-            dueDate: new Date('2021-12-04T21:11:54'),
+            dueDate: new Date('2021-09-07T21:11:54'),
             priority: (2, 'High'),
             estTime: 220,
             type: "Exam",
-            dateAdded: d,
+            dateAdded: new Date('2021-12-06T21:11:54'),
             subTasks:[{
                 key: Math.floor(Math.random()*10000),
                 title:'Study Session',
@@ -49,7 +49,6 @@ export const StateProvider = props  => {
                     title:'Twitter in 2013',
                     link:'https://www.huffpost.com/entry/obama-twitter-potus_n_7306724'
                 }],
-                dateAdded:new Date('2021-10-04T21:11:54')
             },{
                 groupKey: Math.floor(Math.random()*10000),
                 groupTitle:'Student Study Patterns',
@@ -62,7 +61,6 @@ export const StateProvider = props  => {
                     title:'asdsad',
                     link:'https://www.webanalyticsworld.net/2012/03/twitter-stats-in-2012-infographic.html'
                 }],
-                dateAdded:new Date('2021-11-04T21:11:54')
             }],
             completed: false
         },
@@ -75,7 +73,7 @@ export const StateProvider = props  => {
             priority: (1, 'Medium'),
             estTime: 120,
             type: "Essay",
-            dateAdded: d,
+            dateAdded: new Date('2021-12-06T21:11:54'),
             subTasks:[{
                 key: Math.floor(Math.random()*10000),
                 title:'Study Session',
@@ -97,11 +95,11 @@ export const StateProvider = props  => {
             title: "Design Infographic",
             description: "Design an infographic exploring given dataset",
             subject: 'DECO3100',
-            dueDate: new Date('2021-06-12T21:11:54'),
+            dueDate: new Date('2021-07-12T21:11:54'),
             priority: (2, 'High'),
             estTime: 230,
             type: "Exam",
-            dateAdded: d,
+            dateAdded: new Date('2021-06-11T21:11:54'),
             subTasks:[{
                 key: Math.floor(Math.random()*10000),
                 title:'Study Session',
@@ -119,11 +117,11 @@ export const StateProvider = props  => {
             title: "Design webApp",
             description: "Design this program",
             subject: 'DECO2017',
-            dueDate: new Date('2021-06-30T21:11:54'),
+            dueDate: new Date('2021-07-30T21:11:54'),
             priority: (2, 'High'),
             estTime: 2200,
             type: "Assignment",
-            dateAdded: d,
+            dateAdded:  new Date('2021-06-30T21:11:54'),
             subTasks: [],
             references: [],
             completed: false

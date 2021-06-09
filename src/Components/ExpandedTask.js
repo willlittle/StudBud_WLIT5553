@@ -13,6 +13,7 @@ import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
 import ClassIcon from '@material-ui/icons/Class';
 import SchoolIcon from '@material-ui/icons/School';
 import ExpandedSwitcher from './ExpandedSwitcher'
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 const useStyles = makeStyles((theme) => ({
     root: {
         paddingTop: theme.spacing(1),
@@ -65,7 +66,7 @@ export default function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const taskEstTime = `~ ${Math.floor(appState.selectedTask.estTime/60)}:${appState.selectedTask.estTime-Math.floor(appState.selectedTask.estTime/60)*60}`
 
-
+  console.log(appState)
 
   return (
     <div className={classes.root}>
@@ -73,9 +74,9 @@ export default function Dashboard() {
           <Grid container spacing={1}>
             <Grid item xs={12} md={6} lg={6}>
               <Paper className={classes.titles}>
-                <Box >
-                <Typography variant='h4'>{appState.selectedTask.title}</Typography>
-                <Typography variant='h5' color='textSecondary'>{appState.selectedTask.description}</Typography>
+                <Box overflow='hidden'>
+                <Typography variant='h4'nowrap >{appState.selectedTask.title}</Typography>
+                <Typography variant='h5' noWrap color='textSecondary'>{appState.selectedTask.description}</Typography>
                 </Box>
               </Paper>
             </Grid>
@@ -96,6 +97,12 @@ export default function Dashboard() {
                     </Grid>
                     <Grid item xs={4} md={4} lg={4} className={classes.stat}>
                       <Paper className={classes.stat}>
+                        <EventAvailableIcon fontSize='small' style={{marginRight: 10}} color='secondary'/>
+                        <Typography variant='h7' color='textPrimary'>{appState.selectedTask.dateAdded.toLocaleDateString()}</Typography>
+                      </Paper>
+                    </Grid>
+                    <Grid item xs={4} md={4} lg={4} className={classes.stat}>
+                      <Paper className={classes.stat}>
                         <PriorityHighIcon fontSize='small' style={{marginRight: 10}} color='secondary'/>
                         <Typography variant='h7' color='textPrimary'>{appState.selectedTask.priority}</Typography>
                       </Paper>
@@ -112,12 +119,7 @@ export default function Dashboard() {
                         <Typography variant='h7' color='textPrimary'>{appState.selectedTask.subject}</Typography>
                       </Paper>
                     </Grid>
-                    <Grid item xs={4} md={4} lg={4} className={classes.stat}>
-                      <Paper className={classes.stat}>
-                        <SchoolIcon fontSize='small' style={{marginRight: 10}} color='secondary'/>
-                        <Typography variant='h7' color='textPrimary'>{appState.selectedTask.subject}</Typography>
-                      </Paper>
-                    </Grid>
+                    
                 </Grid>
               </Paper>
             </Grid>

@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const links = [{
     title: 'PodCast - Lex Fridman',
-    link: 'orMtwOz6Db0'
+    link: 'krB0enBeSiE'
 },{
     title: 'Cool Song',
     link: '_cX56dEVHTI'
@@ -54,7 +54,7 @@ const links = [{
 
 const Player = () => {
     const [activeLink, setActiveLink] = useState('https://www.youtube.com/watch?v=WxfA1OSev4c')
-    const [videoID, setVideoID] = useState('WxfA1OSev4c')
+    const [videoID, setVideoID] = useState('krB0enBeSiE')
 
     const opts = {
         height: '300',
@@ -83,7 +83,7 @@ const Player = () => {
                     color='textSecondary'
                     size='small'
                     placeholder='Title'>
-                        Add Task:
+                        Add video
                     </Typography>
                     
                     <TextField
