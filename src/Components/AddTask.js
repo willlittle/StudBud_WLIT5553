@@ -1,3 +1,9 @@
+// known bug with 'a' key. There is an event listener on the MenuItem component interupting normal use. 
+//consider moving to modal popup
+
+//standard window alerts will be substituted for style model popups in future development.
+
+
 import React,{useContext, useState} from 'react';
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'

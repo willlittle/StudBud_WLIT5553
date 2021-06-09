@@ -1,3 +1,6 @@
+//Least function component. Due to the difficult and isolated nature of developign with youtube API, I have left a more detailed iteratio of this future 
+// to future rounds of developemnt.
+
 import React,{useState, useEffect} from 'react'
 import YouTube from 'react-youtube';
 import Grid from '@material-ui/core/Grid'
@@ -7,8 +10,6 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 import Paper from '@material-ui/core/Paper'
-
-
 
 const useStyles = makeStyles((theme) => ({
     inputBar:{

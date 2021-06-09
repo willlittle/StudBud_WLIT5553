@@ -1,16 +1,17 @@
+//This is a datascience heavy component, indicative of the level of detail I found certain use cases desired.
+// as I continue to develope this concept and more data is added to each task, this concept will be developed further
+
+
 import { Grid, Paper, Typography, Box, IconButton, Container } from '@material-ui/core'
 import React,{useState, useContext, useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import TimerIcon from '@material-ui/icons/Timer';
-import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import {StateManager} from './StateManager'
 import FunctionsIcon from '@material-ui/icons/Functions';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
-import { within } from '@testing-library/dom';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import { FunctionsOutlined } from '@material-ui/icons';
 const useStyles = makeStyles((theme) => ({
   subheading: {
     padding: theme.spacing(1),

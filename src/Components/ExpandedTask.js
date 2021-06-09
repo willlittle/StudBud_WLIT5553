@@ -1,9 +1,18 @@
+//main components for expanded task view
+//call Expanded Task switcher for main content
+
+//some data science also takes place to interpret the selected tasks data to display in the 'stats'
+
+//MuI Grid components used to handle responsive design.
+
+
 import React,{useContext} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
 import {StateManager} from './StateManager'
@@ -15,14 +24,13 @@ import SchoolIcon from '@material-ui/icons/School';
 import ExpandedSwitcher from './ExpandedSwitcher'
 import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 const useStyles = makeStyles((theme) => ({
-    root: {
-        paddingTop: theme.spacing(1),
-        display: 'flex',
+  root: {
+    paddingTop: theme.spacing(1),
+    display: 'flex',
   },
-  titles:{
 
-    paddingLeft:theme.spacing(2),
-    alignItems: 'center'
+  button:{
+    marginLeft:theme.spacing(1)
   },
   paper: {
     display: 'flex',
@@ -39,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
   titles: {
     background: 'linear-gradient(45deg, #303540 30%, #202830  90%)',
     display:'flex',
+    justifyContent:'space-between',
     height:100,
     padding:theme.spacing(2)
   },
@@ -57,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -66,7 +76,50 @@ export default function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   const taskEstTime = `~ ${Math.floor(appState.selectedTask.estTime/60)}:${appState.selectedTask.estTime-Math.floor(appState.selectedTask.estTime/60)*60}`
 
-  console.log(appState)
+  const setTaskDone = () => {
+    const newTasks = taskList.filter(t => {
+      if (t.key != appState.selectedTask.key){
+        return t
+      }
+    })
+    setTasks(pt => (
+      [{
+      key: appState.selectedTask.key,
+      title: appState.selectedTask.title,
+      description: appState.selectedTask.description,
+      subject: appState.selectedTask.subject,
+      dueDate: appState.selectedTask.dueDate,
+      priority: appState.selectedTask.priority,
+      estTime: appState.selectedTask.estTime,
+      type: appState.selectedTask.type,
+      dateAdded: appState.selectedTask.dateAdded,
+      subTasks: appState.selectedTask.subTasks,
+      references: appState.selectedTask.references,
+      completed: true
+    },...newTasks]
+    ))
+    setAppState(prevState => ({
+      subjects: prevState.subjects,
+      taskTypes: prevState.taskTypes,
+      selectedTask:{
+          key: prevState.selectedTask.key,
+          title: prevState.selectedTask.title,
+          description: prevState.selectedTask.description,
+          subject: prevState.selectedTask.subject,
+          dueDate: prevState.selectedTask.dueDate,
+          priority: prevState.selectedTask.priority,
+          estTime: prevState.selectedTask.estTime,
+          type: prevState.selectedTask.type,
+          dateAdded: prevState.selectedTask.dateAdded,
+          subTasks: prevState.selectedTask.subTasks,
+          references: prevState.selectedTask.references,
+          completed: true
+      },
+      priority:prevState.priority,
+      filter:prevState.filter,
+      home: false
+    }))
+  }
 
   return (
     <div className={classes.root}>
@@ -78,6 +131,12 @@ export default function Dashboard() {
                 <Typography variant='h4'nowrap >{appState.selectedTask.title}</Typography>
                 <Typography variant='h5' noWrap color='textSecondary'>{appState.selectedTask.description}</Typography>
                 </Box>
+                <>
+                <Button
+                className={classes.button}
+                onClick={()=> setTaskDone()}
+                >Done</Button>
+                </>
               </Paper>
             </Grid>
             <Grid item xs={12} md={6} lg={6}>

@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(),
     background: 'linear-gradient(45deg, #303540 30%, #202830  90%)', 
   },
+  listItemComplete: {
+    marginBottom: theme.spacing(),
+    background: 'linear-gradient(90deg, rgb(40,40,40) 30%, rgb(50,60,60)  90%)', 
+  },
   liTextP:{
     
     color:'rgb(240,240,240)'
@@ -126,7 +130,7 @@ export default function InteractiveList() {
         
       <List >
         {filtered.map((t) => (
-          <ListItem className={classes.listItem}>
+          <ListItem className={!t.completed ? classes.listItem:classes.listItemComplete}>
             <ListItemAvatar >
               <Avatar >
               <ClassIcon fontSize='medium'/>
@@ -134,7 +138,7 @@ export default function InteractiveList() {
             </ListItemAvatar>
             <ListItemText 
             
-              primary={<Typography className={classes.liTextP} variant='h6'>{t.title}</Typography>}
+              primary={<Typography className={classes.liTextP} variant='h6'><b>{t.title}</b>{t.completed?' - completed':''}</Typography>}
               secondary={<Box>
               {/* <Typography className={classes.liTextS}>}</Typography> */}
               <Typography className={classes.liTextS}>Due: <b>{t.dueDate.toLocaleDateString()}</b> | subject: <b>{t.subject}</b> | type: <b>{t.type}</b></Typography>

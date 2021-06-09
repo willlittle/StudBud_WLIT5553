@@ -1,3 +1,10 @@
+//this handles the navigation within the expanded task view. Switch case reads the state of the Tabs components
+//and returns correct component.
+
+//some data science also takes place to interpret the selected tasks data to display in the 'stats'
+
+//MuI Grid components used to handle responsive design.
+
 import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';

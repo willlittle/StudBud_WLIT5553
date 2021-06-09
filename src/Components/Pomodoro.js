@@ -1,3 +1,6 @@
+//base concept taken fromhttps://javascript.plainenglish.io/create-a-pomodoro-timer-with-react-and-javascript-dead941b1fec
+// heavily modified to allow users to define their own timing.
+
 import React, { useEffect, useState } from "react";
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
@@ -92,7 +95,7 @@ export default function App() {
       if (onTime > 5* 60){
       setOnTime(prevSecs => prevSecs-5*60)
     } else {
-      alert('You can set timer to less than 15 minutes')
+      alert('You can set timer to less than 5 minutes')
     }} 
     if (inp === 'add'){
       if (onTime < 55* 60){
@@ -107,13 +110,13 @@ export default function App() {
       if (pauseTime > 3* 60){
       setPauseTime(prevSecs => prevSecs-1*60)
     } else {
-      console.log('You can set timer to less than 15 minutes')
+      console.log('You can set pause time to less than 3 minutes')
     }} 
     if (inp === 'add'){
       if (pauseTime < 10* 60){
         setPauseTime(prevSecs => prevSecs+1*60)
       } else {
-        alert('You can set timer to less than 15 minutes')
+        alert('You can set pause time to more than 10 minutes')
       }
     }
   }

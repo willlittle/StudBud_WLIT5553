@@ -1,3 +1,6 @@
+//base level rendering called by App.js. useContext's 'state provider' called here.
+//Other baseline formatting such as theme, back drop and theme also declared here
+
 import TaskList from './TaskList'
 import {StateManager} from './StateManager'
 import Grid from '@material-ui/core/Grid';

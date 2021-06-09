@@ -1,3 +1,5 @@
+//simple Navbar using conditional rendering to only display back button when not on home page, and to only allow users to add task if @ home
+
 import React,{useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';

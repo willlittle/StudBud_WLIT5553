@@ -1,3 +1,9 @@
+//Taken from https://dev.to/bnevilleoneill/build-a-beautiful-draggable-kanban-board-with-react-beautiful-dnd-3oij
+// modified to hook into global state to allow changes made to be persitant in the browser session.
+
+//I am happy with the user flow of creating subtasks, and then tracking these subtasks in the KanBan board module, all within the expanded task view.
+//I feel this allows users deep/customisable functionality, while minimising neccesary navigation while in study session.
+
 import React, { useState, useContext } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import {uuid} from "uuidv4";

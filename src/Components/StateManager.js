@@ -1,7 +1,10 @@
+//My state managemnt got a little out of hand. The fact that each task is a object in an array, with all data like refernces stores in that object
+//is inefficient. In future design, I would refactor this so that all subtasks/refernces etc. are their
+//own object in state, with a refernce to which task it belongs to. This will make it far easier to add data to each task
+
 import { NoEncryptionOutlined } from '@material-ui/icons';
 import {createContext, useState} from 'react'
 import {uuid} from 'uuidv4'
-
 export const StateManager = createContext();
     
 export const StateProvider = props  => {

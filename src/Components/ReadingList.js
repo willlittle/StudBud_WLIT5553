@@ -1,3 +1,6 @@
+//quite happy with this concept. I like that when no groups are added, a 2 lines of tesxt will appear to giude new users on how to use
+//functionalty. This concept is how I will onboard new users in furhter development
+
 import React, { useEffect, useState, useContext } from "react";
 import TextField from '@material-ui/core/TextField';import Box from '@material-ui/core/Box'
 import IconButton from '@material-ui/core/IconButton'

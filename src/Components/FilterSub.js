@@ -1,3 +1,11 @@
+// this is jsut a menue to write to state the selected 'filter'
+
+//I shoudlnt have made an individual components for each filter. This was developed quite early, and in future rounds 
+//of deisgn, I can cee how these would be rolled up into a inslge component.
+
+//additionaly, I will also add the ability to 'sort by' in future. This is mostly to indicate the types of user control I found
+// valuable in the user research phase, that will feature in the final product
+
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
