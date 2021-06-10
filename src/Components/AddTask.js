@@ -90,7 +90,7 @@ export default function FormPropsTextFields({submit}) {
           priority: priority,
           estTime: Number(hr)*60+Number(min),
           type: taskType,
-          dateAdded: 123,
+          dateAdded: new Date(),
           subTasks: [],
           references: [],
           completed: false
@@ -156,7 +156,7 @@ export default function FormPropsTextFields({submit}) {
                   label="Priority"
                 >
                   {aState.priority.map((p) => (
-                    <MenuItem  value={p[1]}>
+                    <MenuItem  value={p}>
                       {p}
                     </MenuItem>
                   ))}
